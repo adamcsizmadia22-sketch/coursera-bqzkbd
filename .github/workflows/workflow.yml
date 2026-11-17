@@ -26,6 +26,8 @@ jobs:
         run: |
           flake8 .
 
+      
       - name: Unit tests
         run: |
-          nosetests
+          python -c "import collections, collections.abc; collections.Callable = collections.abc.Callable; import nose; nose.main()"
+
