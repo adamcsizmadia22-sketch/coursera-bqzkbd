@@ -12,8 +12,7 @@ spec:
       script: |
         #!/bin/sh
         echo "Cleaning workspace..."
-        find "$(workspaces.source.path)" -type d -name "__pycache__" -prune -exec rm -rf {} +
-        find "$(workspaces.source.path)" -type f -name "*.pyc" -delete
+        find "$(workspaces.source.path)" -mindepth 1 -maxdepth 1 -exec rm -rf -- {} +
 
 ---
 apiVersion: tekton.dev/v1
